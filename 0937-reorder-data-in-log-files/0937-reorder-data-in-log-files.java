@@ -14,19 +14,22 @@ class Solution {
             }
         }
 
-        // 문자 리스트 정렬 -> 람다 표현식 사용
-        wordsList.sort((s1, s2) -> {
-            // 식별자[0]와 식별자 외 나머지 부분[1]으로 쪼개기
-            String[] s1x = s1.split(" ", 2);
-            String[] s2x = s2.split(" ", 2);
+        // 문자 리스트 정렬
+        wordsList.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                // 문자 로그에서 식별자를 제외한 문자열 값
+                String o1Words = o1.substring(o1.indexOf(" ")+1);
+                String o2Words = o2.substring(o2.indexOf(" ")+1);
 
-            // 식별자 외 나머지 부분의 내용이 같다면
-            if (s1x[1].equals(s2x[1])) {
-                // 식별자를 기준으로 비교
-                return s1x[0].compareTo(s2x[0]);
-            } else {    // 다르다면
-                // 내용을 기준으로 비교
-                return s1x[1].compareTo(s2x[1]);
+                // 비교하는 문자열 값이 같은 경우
+                if (o1Words.equals(o2Words)) {
+                    // 식별자를 기준으로 정렬 -> 문자 로그 자체를 비교
+                    return o1.compareTo(o2);
+                } else {    // 다른 경우
+                    // 문자열 값을 기준으로 정렬
+                    return o1Words.compareTo(o2Words);
+                }
             }
         });
 
