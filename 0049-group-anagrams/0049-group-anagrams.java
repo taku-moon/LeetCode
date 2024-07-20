@@ -11,10 +11,10 @@ class Solution {
             map.get(key).add(str);
         }
 
-        List<List<String>> result = new ArrayList<>();
-        for (List<String> value : map.values()) {
-            value.sort(null);
-            result.add(value);
+        List<List<String>> result = new ArrayList<>(map.values());
+        
+        for (List<String> list : result) {
+            list.sort(null);
         }
 
         return result;
