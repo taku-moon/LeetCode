@@ -4,7 +4,7 @@ class Solution {
 
         Set<List<Integer>> set = new LinkedHashSet<>();
 
-        for (int i = 0; i < nums.length-1; i++) {
+        for (int i = 0; i < nums.length-2; i++) {
             int num = nums[i];
             int firstIdx = i + 1;
             int secondIdx = nums.length-1;
