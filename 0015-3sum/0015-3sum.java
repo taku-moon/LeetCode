@@ -20,7 +20,7 @@ class Solution {
                     list.add(nums[firstIdx]);
                     list.add(nums[secondIdx]);
                     set.add(list);
-                    firstIdx--;
+                    firstIdx++;
                 } else if (nums[firstIdx]+nums[secondIdx] > -num) {
                     secondIdx--;
                 } else if (nums[firstIdx]+nums[secondIdx] < -num) {
