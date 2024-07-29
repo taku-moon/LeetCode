@@ -8,18 +8,18 @@ class Solution {
             int num = nums[i];
             int firstIdx = i + 1;
             int secondIdx = nums.length-1;
-
             while (firstIdx < secondIdx) {
-                if (nums[firstIdx]+nums[secondIdx] == -num) {
+                int tmp = nums[firstIdx]+nums[secondIdx];
+                if (tmp == -num) {
                     List<Integer> list = new ArrayList<>();
                     list.add(num);
                     list.add(nums[firstIdx]);
                     list.add(nums[secondIdx]);
                     set.add(list);
                     firstIdx++;
-                } else if (nums[firstIdx]+nums[secondIdx] > -num) {
+                } else if (tmp > -num) {
                     secondIdx--;
-                } else if (nums[firstIdx]+nums[secondIdx] < -num) {
+                } else if (tmp < -num) {
                     firstIdx++;
                 }
             }
