@@ -13,13 +13,13 @@ class Solution {
                 int sum = num + nums[leftIdx] + nums[rightIdx];
 
                 if (sum == 0) {
-                    List<Integer> list = new ArrayList<>();
-                    list.add(num);
-                    list.add(nums[leftIdx]);
-                    list.add(nums[rightIdx]);
-                    set.add(list);
+                    // List<Integer> list = new ArrayList<>();
+                    // list.add(num);
+                    // list.add(nums[leftIdx]);
+                    // list.add(nums[rightIdx]);
+                    // set.add(list);
 
-                    // set.add(Arrays.asList(num, nums[leftIdx], nums[rightIdx]));
+                    set.add(Arrays.asList(num, nums[leftIdx], nums[rightIdx]));
                     leftIdx++;
 
                 } else if (sum < 0) {
