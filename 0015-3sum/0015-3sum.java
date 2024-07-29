@@ -5,9 +5,6 @@ class Solution {
         Set<List<Integer>> set = new LinkedHashSet<>();
 
         for (int i = 0; i < nums.length-1; i++) {
-            if (nums[i] > 0) {
-                break;
-            }
 
             int num = nums[i];
             int firstIdx = i + 1;
