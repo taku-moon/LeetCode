@@ -18,6 +18,7 @@ class Solution {
                     list.add(nums[rightIdx]);
                     set.add(list);
                     leftIdx++;
+                    rightIdx--;
                 } else if (sum < 0) {
                     leftIdx++;
                 } else if (sum > 0) {
