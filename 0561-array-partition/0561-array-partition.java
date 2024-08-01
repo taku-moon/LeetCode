@@ -1,10 +1,17 @@
 class Solution {
     public int arrayPairSum(int[] nums) {
+        int sum = 0;
+        List<Integer> pair = new ArrayList<>();
         Arrays.sort(nums);
 
-        int sum = 0;
-        for(int i = 0; i < nums.length; i += 2) {
-            sum += nums[i];
+        // 앞에서부터 오름차순으로 반복
+        for (int n: nums) {
+            pair.add(n);
+            // 페어 변수에 값이 2개 채워지면 min()을 합산하고 변수 초기화
+            if (pair.size() == 2) {
+                sum += Collections.min(pair);
+                pair.clear();
+            }
         }
 
         return sum;
