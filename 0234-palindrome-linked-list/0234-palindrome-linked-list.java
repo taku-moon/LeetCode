@@ -11,12 +11,9 @@
 class Solution {
     public boolean isPalindrome(ListNode head) {
         StringBuilder sb = new StringBuilder();
-        while (true) {
+        while (head != null) {
             sb.append(head.val);
             head = head.next;
-            if (head == null) {
-                break;
-            }
         }
 
         String headOriginal = sb.toString();
