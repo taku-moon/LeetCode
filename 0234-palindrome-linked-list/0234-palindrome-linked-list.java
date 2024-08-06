@@ -10,14 +10,19 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        StringBuilder sb = new StringBuilder();
-        while (head != null) {
-            sb.append(head.val);
-            head = head.next;
+        Deque<Integer> stack = new ArrayDeque<>();
+        ListNode node = head;
+        while (node != null) {
+            stack.push(node.val);
+            node = node.next;
         }
-
-        String headOriginal = sb.toString();
-        String headReverse = sb.reverse().toString();
-        return headOriginal.equals(headReverse);
+        while (head != null) {
+            if (head.val == stack.pop()) {
+                head = head.next;
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 }
