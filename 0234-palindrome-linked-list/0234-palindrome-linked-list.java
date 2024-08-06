@@ -10,21 +10,15 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        ListNode node = head;
-        Deque<Integer> stack = new ArrayDeque<>();
-        
-        while (node != null) {
-            stack.push(node.val);
-            node = node.next;
-        }
-
+        StringBuilder sb = new StringBuilder();
         while (head != null) {
-            if (head.val != stack.pop()) {
-                return false;
-            }
+            sb.append(head.val);
             head = head.next;
         }
 
-        return true;
+        String headOriginal = sb.toString();
+        String headReverse = sb.reverse().toString();
+        
+        return headOriginal.equals(headReverse);
     }
 }
