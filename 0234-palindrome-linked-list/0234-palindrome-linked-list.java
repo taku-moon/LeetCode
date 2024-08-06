@@ -11,15 +11,15 @@
 class Solution {
     public boolean isPalindrome(ListNode head) {
         ListNode node = head;
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> deque = new LinkedList<>();
         
         while (node != null) {
-            stack.push(node.val);
+            deque.add(node.val);
             node = node.next;
         }
 
-        while (head != null) {
-            if (head.val != stack.pop()) {
+        while ((!deque.isEmpty()) && (deque.size() > 1)) {
+            if (deque.pollFirst() != deque.pollLast()) {
                 return false;
             }
             head = head.next;
