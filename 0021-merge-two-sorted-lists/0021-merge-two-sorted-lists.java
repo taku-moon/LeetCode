@@ -10,23 +10,28 @@
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        // 두 노드 중 한쪽이 null이면 null이 아닌 노드를 리턴
-        if (list1 == null) {
-            return list2;
-        }
-        if (list2 == null) {
-            return list1;
+        ListNode node = new ListNode();
+        ListNode answer = node;
+
+        while(list1 != null || list2 != null) {
+            int val1 = (list1 != null) ? list1.val : 101;
+            int val2 = (list2 != null) ? list2.val : 101;
+
+            ListNode tmp = new ListNode();
+
+            if(val1 < val2) {
+                tmp.val = val1;
+                list1 = list1.next;
+            }
+            else {
+                tmp.val = val2;
+                list2 = list2.next;
+            }
+
+            node.next = tmp;
+            node = node.next;
         }
 
-        // list2가 더 크면 list1에 재귀 호출 결과를 엮고 list1을 리턴
-        if (list1.val < list2.val) {
-            list1.next = mergeTwoLists(list1.next, list2);
-            return list1;
-
-          // list1이 더 크거나 같으면 list2에 재귀 호출 결과를 엮고 list2를 리턴
-        } else {
-            list2.next = mergeTwoLists(list1, list2.next);
-            return list2;
-        }
+        return answer.next;
     }
 }
