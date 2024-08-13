@@ -9,24 +9,18 @@
  * }
  */
 class Solution {
-    public ListNode reverse(ListNode node, ListNode prev) {
-        // 현재 노드인 node가 null이면 리턴
-        if (node == null) {
-            return prev;
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode current = head;
+
+        while (current != null) {
+            ListNode next = current.next;
+
+            current.next = prev;
+            prev = current;
+            current = next; 
         }
 
-        // 현재 노드의 다음 노드 미리 지정
-        ListNode next = node.next;
-
-        // 현재 노드의 다음으로 이전 노드 지정
-        node.next = prev;
-
-        // 다음 노드와 현재 노드를 파라미터로 하여 재귀 호출
-        return reverse(next, node);
-    }
-
-    public ListNode reverseList(ListNode head) {
-
-        return reverse(head, null);
+        return prev;
     }
 }
