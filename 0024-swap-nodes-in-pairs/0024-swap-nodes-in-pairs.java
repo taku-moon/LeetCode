@@ -10,9 +10,7 @@
  */
 class Solution {
     public ListNode swapPairs(ListNode head) {
-        ListNode node = new ListNode();
-        node.next = head;
-
+        ListNode node = new ListNode(0, head);
         ListNode answer = node;
 
         while (node.next != null && node.next.next != null) {
