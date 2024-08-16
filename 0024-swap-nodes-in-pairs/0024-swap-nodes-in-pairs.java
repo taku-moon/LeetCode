@@ -1,28 +1,30 @@
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- * int val;
- * ListNode next;
- * ListNode() {}
- * ListNode(int val) { this.val = val; }
- * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public ListNode swapPairs(ListNode head) {
-        ListNode answer = head;
+        ListNode node = new ListNode();
+        ListNode answer = node;
 
-        // head와 head.next 둘 중 하나라도 존재하지 않으면 탈출
-        while (head != null && head.next != null) {
-            // 임시 변수를 사용하여 값 교환
-            int tmp = head.val;
-            head.val = head.next.val;
-            head.next.val = tmp;
+        node.next = head;
+        while (node.next != null && node.next.next != null) {
+            ListNode a = node.next;
+            ListNode b = node.next.next;
 
-            // 두 칸 앞으로 이동
-            head = head.next.next;
+            node.next = b;
+            a.next = b.next;
+            b.next = a;
+
+            node = node.next.next;
         }
 
-        return answer;
+        return answer.next;
     }
 }
