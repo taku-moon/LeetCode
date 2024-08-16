@@ -11,9 +11,10 @@
 class Solution {
     public ListNode swapPairs(ListNode head) {
         ListNode node = new ListNode();
+        node.next = head;
+
         ListNode answer = node;
 
-        node.next = head;
         while (node.next != null && node.next.next != null) {
             ListNode a = node.next;
             ListNode b = node.next.next;
