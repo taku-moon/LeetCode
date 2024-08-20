@@ -20,9 +20,8 @@ class Solution {
 
         ListNode leftNode = start.next;
         ListNode rightNode = leftNode.next;
-        ListNode tmp = null;
         for (int i = 0; i < right - left; i++) {
-            tmp = start.next;
+            ListNode tmp = start.next;
             start.next = rightNode;
             leftNode.next = rightNode.next;
             rightNode.next = tmp;
