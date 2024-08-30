@@ -2,11 +2,17 @@ class MyStack {
     Queue<Integer> queueStack;
 
     public MyStack() {
-        queueStack = new LinkedList<>();
+        // ArrayDeque와 LinkedList는 Deque를 구현한다.
+        // Deque는 Queue를 상속받는다.
+        // 구현체로 ArrayDeque, LinkedList 둘 다 사용 가능
+        queueStack = new ArrayDeque<>();
+        // queueStack = new LinkedList<>();
     }
     
     public void push(int x) {
         queueStack.add(x);
+
+        // 큐를 스택으로 사용하기 위한 재정렬
         for (int i = 0; i < queueStack.size() - 1; i++) {
             queueStack.add(queueStack.remove());
         }
