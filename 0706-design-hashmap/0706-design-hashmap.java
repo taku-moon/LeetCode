@@ -1,4 +1,5 @@
 class MyHashMap {
+
     // 노드 클래스
     static class Node {
         int key, val;
@@ -12,15 +13,16 @@ class MyHashMap {
 
     final Node[] nodes = new Node[1000000];
 
-    // 삽입
     public void put(int key, int value) {
         // 해싱 결과를 인덱스로 지정
         int index = key % nodes.length;
+
         // 해당 인덱스에 노드가 없다면 신규 생성 후 종료
         if (nodes[index] == null) {
             nodes[index] = new Node(key, value);
             return;
         }
+
         // 인덱스에 노드가 존재한다면 연결 리스트로 처리
         Node node = nodes[index];
         while (node != null) {
@@ -35,17 +37,19 @@ class MyHashMap {
             // 다음 노드로 진행
             node = node.next;
         }
+
         // 마지막 노드 다음으로 연결
         node.next = new Node(key, value);
     }
 
-    // 조회
     public int get(int key) {
         // 해싱 결과를 인덱스로 지정
         int index = key % nodes.length;
+
         // 인덱스에 노드가 존재하지 않으면 -1
         if (nodes[index] == null)
             return -1;
+
         // 인덱스에 노드가 존재한다면 일치하는 키 탐색
         Node node = nodes[index];
         while (node != null) {
@@ -56,6 +60,7 @@ class MyHashMap {
             // 다음 노드로 진행
             node = node.next;
         }
+
         // 인덱스를 모두 순회해도 일치하는 키가 없다면 -1
         return -1;
     }
@@ -64,9 +69,11 @@ class MyHashMap {
     public void remove(int key) {
         // 해싱 결과를 인덱스로 지정
         int index = key % nodes.length;
+
         // 해당 인덱스에 노드가 없다면 종료
         if (nodes[index] == null)
             return;
+
         // 첫 번째 노드일 때의 삭제 처리
         Node node = nodes[index];
         // 일치하는 키가 있다면
@@ -78,6 +85,7 @@ class MyHashMap {
             else
                 nodes[index] = node.next;
         }
+        
         // 연결 리스트 노드일 때의 삭제 처리
         Node prev = node;
         while (node != null) {
