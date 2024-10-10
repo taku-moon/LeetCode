@@ -1,11 +1,11 @@
 class Solution {
     public int numJewelsInStones(String jewels, String stones) {
-        Map<String, Integer> map = new HashMap<>();
-        for (String jewel : jewels.split("")) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (Character jewel : jewels.toCharArray()) {
             map.put(jewel, 0);
         }
         
-        for (String stone : stones.split("")) {
+        for (Character stone : stones.toCharArray()) {
             if (!map.containsKey(stone)) {
                 continue;
             }
@@ -13,7 +13,7 @@ class Solution {
         }
 
         int answer = 0;
-        for (String jewel : jewels.split("")) {
+        for (Character jewel : jewels.toCharArray()) {
             answer += map.get(jewel);
         }
 
