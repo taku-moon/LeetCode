@@ -9,7 +9,7 @@ class Solution {
         // 문자열을 문자 단위로 반복
         for (char c : s.toCharArray()) {
             // 이미 등장했던 문자이고, 슬라이딩 윈도우의 안쪽에 있다면 start 위치 업데이트
-            if (map.containsKey(c) && start <= map.get(c)) {
+            if (map.containsKey(c)) {
                 start = map.get(c) + 1;
             } else {    // 최대 부분 문자열 길이 업데이트
                 maxLen = Math.max(maxLen, end - start + 1);
