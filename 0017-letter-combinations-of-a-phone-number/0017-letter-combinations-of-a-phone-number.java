@@ -30,7 +30,7 @@ class Solution {
         for (char letter : letters.toCharArray()) {
             sb.append(letter);
             dfs(digits, map, index + 1, sb, answer);
-            //sb.deleteCharAt(sb.length() - 1); // 백트래킹
+            sb.deleteCharAt(sb.length() - 1); // 백트래킹
         }
     }
 }
