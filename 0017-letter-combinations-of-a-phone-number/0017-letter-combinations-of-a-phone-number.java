@@ -1,7 +1,7 @@
 class Solution {
     public List<String> letterCombinations(String digits) {
         List<String> answer = new ArrayList<>();
-        if (digits == null || digits.length == 0) {
+        if (digits == null || digits.length() == 0) {
             return answer;
         }
 
@@ -15,25 +15,22 @@ class Solution {
         map.put('8', "tuv");
         map.put('9', "wxyz");
 
-        dfs(digits, map, 0, new StringBuilder, answer);
+        dfs(digits, map, 0, new StringBuilder(), answer);
 
-        return asnwer;
+        return answer;
     }
 
     public void dfs(String digits, Map<Character, String> map, int idx, StringBuilder sb, List<String> answer) {
         if (idx == digits.length()) {
             answer.add(sb.toString());
-            retrun;
+            return;
         }
         
-        String letters = map.get(digits.charAt(idx))
+        String letters = map.get(digits.charAt(idx));
         for (char letter : letters.toCharArray()) {
             sb.append(letter);
             dfs(digits, map, idx+1, sb, answer);
-            sb.deleteCharAt(sb.length-1);
+            sb.deleteCharAt(sb.length() - 1);
         }
-
-
-
     }
 }
