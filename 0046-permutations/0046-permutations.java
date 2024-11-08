@@ -1,13 +1,9 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
-        List<Integer> numsList = new ArrayList<>();
-        for (int num : nums) {
-            numsList.add(num);
-        }
-        List<Integer> tmp = new ArrayList<>();
+        List<Integer> numsList = Arrays.stream(nums).boxed().collect(Collectors.toList());
         List<List<Integer>> answer = new ArrayList<>();
 
-        dfs(numsList, tmp, answer);
+        dfs(numsList, new ArrayList<>(), answer);
 
         return answer;
     }
