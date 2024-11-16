@@ -15,7 +15,7 @@ class Solution {
         for (int i = start; i <= n; i++) {
             tmp.add(i);
             dfs(i+1, n, k, tmp, answer);
-            tmp.removeLast();
+            tmp.remove(tmp.size() - 1);
         }
     }
 }
