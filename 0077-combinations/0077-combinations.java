@@ -2,12 +2,12 @@ class Solution {
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> answer = new ArrayList<>();
 
-        dfs(1, n, k, new ArrayList<>(), answer);
+        dfs(1, n, k, new LinkedList<>(), answer);
 
         return answer;
     }
 
-    public void dfs(int start, int n, int k, ArrayList<Integer> tmp, List<List<Integer>> answer) {
+    public void dfs(int start, int n, int k, LinkedList<Integer> tmp, List<List<Integer>> answer) {
         if (k == 0) {
             answer.add(tmp.stream().collect(Collectors.toList()));   
             return;
