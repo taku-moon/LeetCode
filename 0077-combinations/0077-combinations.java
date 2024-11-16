@@ -7,16 +7,16 @@ class Solution {
         return answer;
     }
 
-    public void dfs(int start, int n, int k, List<Integer> tmp, List<List<Integer>> answer) {
-        if (tmp.size() == k) {
-            answer.add(tmp);
+    public void dfs(int start, int n, int k, ArrayList<Integer> tmp, List<List<Integer>> answer) {
+        if (k == 0) {
+            answer.add(tmp.stream().collect(Collectors.toList()));   
             return;
         }
+
         for (int i = start; i <= n; i++) {
             tmp.add(i);
-            List<Integer> newTmp = new ArrayList<>(tmp);
-            dfs(i+1, n, k, newTmp, answer);
-            tmp.remove(tmp.size() - 1);
+            dfs(i+1, n, k-1, tmp, answer);
+            tmp.removeLast();
         }
     }
 }
