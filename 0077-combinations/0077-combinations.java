@@ -9,12 +9,13 @@ class Solution {
 
     public void dfs(int start, int n, int k, List<Integer> tmp, List<List<Integer>> answer) {
         if (tmp.size() == k) {
-            answer.add(new ArrayList<>(tmp));
+            answer.add(tmp);
             return;
         }
         for (int i = start; i <= n; i++) {
             tmp.add(i);
-            dfs(i+1, n, k, tmp, answer);
+            List<Integer> newTmp = new ArrayList<>(tmp);
+            dfs(i+1, n, k, newTmp, answer);
             tmp.remove(tmp.size() - 1);
         }
     }
